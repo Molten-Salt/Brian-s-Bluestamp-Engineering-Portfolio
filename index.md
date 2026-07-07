@@ -58,18 +58,40 @@ Here's where you'll put images of your schematics. [Tinkercad](https://www.tinke
 # Code
 Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
 
-```c++
+#include <Servo.h>
+Servo servo_A5;
+int POS = 90;
+const int DEADBAND = 15; 
+
 void setup() {
-  // put your setup code here, to run once:
+  servo_A5.attach(A5, 500, 2500);
   Serial.begin(9600);
-  Serial.println("Hello World!");
+  pinMode(A0, INPUT);
+  pinMode(A1, INPUT);
+  servo_A5.write(90);
+  POS = 90;
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  int a0 = analogRead(A0);
+  int a1 = analogRead(A1);
+  int diff = a1 - a0;
 
+  Serial.print("servo:"); Serial.println(POS);
+  Serial.print("A0:"); Serial.println(a0);
+  Serial.print("A1:"); Serial.println(a1);
+
+  if (diff > DEADBAND) {
+    POS = constrain(POS + 2, 5, 175);   // stay off hard 0/180
+    servo_A5.write(POS);
+  } else if (diff < -DEADBAND) {
+    POS = constrain(POS - 2, 5, 175);
+    servo_A5.write(POS);
+  }
+
+  delay(50);  // slow the loop so the servo can settle before re-checking
 }
-```
+
 
 # Bill of Materials
 Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
