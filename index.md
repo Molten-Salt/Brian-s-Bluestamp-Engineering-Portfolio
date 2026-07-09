@@ -113,9 +113,9 @@ Don't forget to place the link of where to buy each component inside the quotati
 |N4001 Diode - 10 pack| Protects the MOSFETs from voltage spikes when the pump and fan switch off| $1.50|<a href="https://www.adafruit.com/product/755/"> link </a>|
 |Heat Sink Thermal Tape| Helps heat absorption| $4| <a href="https://www.adafruit.com/product/755/"> link </a>|
 |Radiator| Cools down water| $58.32|<a href="https://www.amazon.com/dp/B082585F2J/"> link </a>|
-|Radiator fan|Assits the radiator| $34.95| https://www.amazon.com/dp/B07DXQTCK6?th=1|
-|G1/4 Thread with OD 4mm Nozzle|Screws into the radiator's threaded ports so the silicone tubing can connect|$14.39|https://www.amazon.com/uxcell-Fitting-Thread-Nozzle-Cooling/dp/B091YQZC3Y?th=1|
-|8mm to 4mm|Bridges the gap between the water block’s 8mm and the tubing|$6.11|https://www.amazon.com/dp/B07ZCQ5D8F?th=1|
+|Radiator fan|Assits the radiator| $34.95|<a href="https://www.amazon.com/dp/B07DXQTCK6?th=1/"> link </a>|
+|G1/4 Thread with OD 4mm Nozzle|Screws into the radiator's threaded ports so the silicone tubing can connect|$14.39|<a href="https://www.amazon.com/uxcell-Fitting-Thread-Nozzle-Cooling/dp/B091YQZC3Y?th=1/"> link </a>|
+|8mm to 4mm|Bridges the gap between the water block’s 8mm and the tubing|$6.11|<a href="https://www.amazon.com/dp/B07ZCQ5D8F?th=1"> link </a>|
 
 
 
