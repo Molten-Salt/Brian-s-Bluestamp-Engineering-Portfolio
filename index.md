@@ -103,8 +103,8 @@ Don't forget to place the link of where to buy each component inside the quotati
 | Solar Panel  |generates electrcity via photoeletric effect.| $20.95 | <a href="https://www.adafruit.com/product/5366"> Link </a> |
 | Arduino | A microcontroller that runs code you uploaded from your computer | $29.95 | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
 | 2 Servo Motors |Rotates the base of the solar panel mount, and tilts the solar panel to the direction of the sun | $11.95 | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
-|Light dependent resistor| $0.95 |The voltage it outputs is determined by the level of light absorbtion|https://www.adafruit.com/product/161/"> lim </a> |
-|
+|Light dependent resistor||The voltage it outputs is determined by the level of light absorbtion|| $0.95 ||https://www.adafruit.com/product/161/"> link </a> |
+
 # Other Resources/Examples
 One of the best parts about Github is that you can view how other people set up their own work. Here are some past BSE portfolios that are awesome examples. You can view how they set up their portfolio, and you can view their index.md files to understand how they implemented different portfolio components.
 - [Example 1](https://trashytuber.github.io/YimingJiaBlueStamp/)
@@ -112,3 +112,4 @@ One of the best parts about Github is that you can view how other people set up 
 - [Example 3](https://arneshkumar.github.io/arneshbluestamp/)
 
 To watch the BSE tutorial on how to create a portfolio, click here.
+|
