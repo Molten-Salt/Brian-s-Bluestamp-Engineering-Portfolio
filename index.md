@@ -104,7 +104,7 @@ Don't forget to place the link of where to buy each component inside the quotati
 |Arduino|A microcontroller that runs code you uploaded from your computer|$29.95|<a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a>|
 |2 Servo Motors |Rotates the base of the solar panel mount, and tilts the solar panel to the direction of the sun |$11.95|<a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a>|
 |4 Light dependent resistors| The voltage it outputs is determined by the level of light absorbtion| $0.95 |<a href="https://www.adafruit.com/product/161/"> link </a> |
-|10k Resistors|Reduces voltage by 10k to prevent damage to electronic parts|$0.75 | https://www.adafruit.com/product/2784?srsltid=AfmBOorDZXOLv9Lx9h1fra0yGWd5E9hwYpEPAJExjlKzU7HgiaWaw3Go
+|10k Resistors|Reduces voltage by 10k to prevent damage to electronic parts|$0.75 |<a href="https://www.adafruit.com/product/2784 srsltid=AfmBOorDZXOLv9Lx9h1fra0yGWd5E9hwYpEPAJExjlKzU7HgiaWaw3Go/"> link </a> |
 |N-channel power MOSFET - 30V / 60A|llows Arduino to control the pump and fan|$2.25|https://www.adafruit.com/product/355?srsltid=AfmBOooPkirS8LThTlKzDdTRovkNZEuPz7EFrS-6DsfyduYLiH5jbACx|
 |Aluminum water cooling block|absorbs heat from hot solar panel, and allows water to flow through its micro channels so that the water can absorb its heat| $6.29|https://botland.store/aluminium-heat-sinks/22902-water-block-for-cooling-40x40mm-aluminum-heatsink-for-peltier-cells.html|
 |Liquid Pump|Pumps water through the water block to absorb the solar panel's heat, and pumps that warm water into a radiator, which then loops back to the pump.| $24.95 | https://www.adafruit.com/product/3910|
