@@ -103,7 +103,26 @@ Don't forget to place the link of where to buy each component inside the quotati
 | Solar Panel  |generates electrcity via photoeletric effect.| $20.95 | <a href="https://www.adafruit.com/product/5366"> Link </a> |
 | Arduino | A microcontroller that runs code you uploaded from your computer | $29.95 | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
 | 2 Servo Motors |Rotates the base of the solar panel mount, and tilts the solar panel to the direction of the sun | $11.95 | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
-|4 Light dependent resistors| The voltage it outputs is determined by the level of light absorbtion| $0.95 |https://www.adafruit.com/product/161/"> link </a>|
+|4 Light dependent resistors| The voltage it outputs is determined by the level of light absorbtion| $0.95 |https://www.adafruit.com/product/161/"> link </a> |
+|10k Resistors|Reduces voltage by 10k to prevent damage to electronic parts|$0.75 | https://www.adafruit.com/product/2784?srsltid=AfmBOorDZXOLv9Lx9h1fra0yGWd5E9hwYpEPAJExjlKzU7HgiaWaw3Go
+|N-channel power MOSFET - 30V / 60A| |$2.25|https://www.adafruit.com/product/355?srsltid=AfmBOooPkirS8LThTlKzDdTRovkNZEuPz7EFrS-6DsfyduYLiH5jbACx|
+|Aluminum water cooling block|absorbs heat from hot solar panel, and allows water to flow through its micro channels so that the water can absorb its heat| $6.29|https://botland.store/aluminium-heat-sinks/22902-water-block-for-cooling-40x40mm-aluminum-heatsink-for-peltier-cells.html|
+|Liquid Pump|Pumps water through the water block to absorb the solar panel's heat, and pumps that warm water into a radiator, which then loops back to the pump.| $24.95 | https://www.adafruit.com/product/3910|
+|Tubing|transports water in a cycle, from pump -- water block -- radiator -- pump| $8.00| https://www.amazon.com/Hooshing-Silicone-Flexible-Winemaking-Transfer/dp/B0BR7SMSHG/ref=pd_ci_mcx_di_int_sccai_cn_d_sccl_1_1/139-5812766-1485522?pd_rd_w=7Oxge&content-id=amzn1.sym.751acc83-5c05-42d0-a15e-303622651e1e&pf_rd_p=751acc83-5c05-42d0-a15e-303622651e1e&pf_rd_r=T6D24261BYKPPCTXS3V0&pd_rd_wg=mdJqA&pd_rd_r=d87a5675-5478-4fd1-a0dd-80e13b2a4b51&pd_rd_i=B08PTXZ51Q&th=1|
+|Temperature sensor|detects and outputs temperature| $9.95 | https://www.adafruit.com/product/381?srsltid=AfmBOoqYiRXyGEczd5sXp8Ay9t2m8BE7f4jkRrg1vgjZ6Gxci-3dVl2T|
+|N4001 Diode - 10 pack| Protects the MOSFETs from voltage spikes when the pump and fan switch off| $1.50| https://www.adafruit.com/product/755|
+|Heat Sink Thermal Tape| Helps heat absorption| $4| https://www.adafruit.com/product/755|
+|Radiator| Cools down water| $58.32| https://www.amazon.com/dp/B082585F2J|
+|Radiator fan|Assits the radiator| $34.95| https://www.amazon.com/dp/B07DXQTCK6?th=1|
+|G1/4 Thread with OD 4mm Nozzle|Screws into the radiator's threaded ports so the silicone tubing can connect|$14.39|https://www.amazon.com/uxcell-Fitting-Thread-Nozzle-Cooling/dp/B091YQZC3Y?th=1|
+|8mm to 4mm|Bridges the gap between the water block’s 8mm and the tubing|$6.11|https://www.amazon.com/dp/B07ZCQ5D8F?th=1|
+
+
+
+
+
+
+
 
 # Other Resources/Examples
 One of the best parts about Github is that you can view how other people set up their own work. Here are some past BSE portfolios that are awesome examples. You can view how they set up their portfolio, and you can view their index.md files to understand how they implemented different portfolio components.
@@ -112,4 +131,3 @@ One of the best parts about Github is that you can view how other people set up 
 - [Example 3](https://arneshkumar.github.io/arneshbluestamp/)
 
 To watch the BSE tutorial on how to create a portfolio, click here.
-|
