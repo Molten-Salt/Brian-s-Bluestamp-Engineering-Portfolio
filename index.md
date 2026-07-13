@@ -50,7 +50,7 @@ For my First Milestone, I have written my code through Tinkercad, which converts
 
 
 
-<img width="504" height="350" alt="IMG_0272" src="https://github.com/user-attachments/assets/883433e1-7c0b-463b-aca5-90b6efa8dd01" />
+<img width="560" height="375" alt="IMG_0272" src="https://github.com/user-attachments/assets/883433e1-7c0b-463b-aca5-90b6efa8dd01" />
 
   
   
