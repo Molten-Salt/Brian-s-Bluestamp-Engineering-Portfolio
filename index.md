@@ -42,7 +42,8 @@ For your second milestone, explain what you've worked on since your previous mil
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/R-oDt9jQxLU?si=cud6JWD-leJm_vVq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<img width="550" height="460" alt="Screenshot 2026-07-13 at 8 48 04 AM" src="https://github.com/user-attachments/assets/06054deb-a1b5-4681-8e16-ffc33836b6a6" />  
+<img width="560" height="450" alt="Screenshot 2026-07-13 at 8 48 04 AM" src="https://github.com/user-attachments/assets/06054deb-a1b5-4681-8e16-ffc33836b6a6" />  
+
 For my First Milestone, I have written my code through Tinkercad, which converts the blocks into C++, which is the programing language the Arduino IDE reads, and converts to binary code to be run. Connected to the Arduino's 5 volt socket is a jumper cable that connects to the positive row of tbe breadboard. Down this path, lies the power pin for the Servo Motor. The male-male golden brown pin connects the Aduino's ground socket to the negative row of the breadboard. Further up the positive row, there lies the leg of 2 photoresistors. The other end connects to the general area of the breadboard, where, in the same columb, a 10k resistor goes back to the negative row of breadboard, bringing it to 0 volts. above the 10k resistor, is a jumper wire that connects to the analog pins to be read. IN the code, A0 and A1 are read, which leads to the rotation of the motor. 
 
 
