@@ -27,6 +27,12 @@ For your final milestone, explain the outcome of your project. Key details to in
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/y3VAmNlER5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[Solar Panel Mount.zip](https://github.com/user-attachments/files/30058102/Solar.Panel.Mount.zip)
+
+
+
+
+
 
 
   FOr my second milestone, I designed the mount of the solar panel through a CAD program called Onshape, printed it out, and installed the solar tracker.
