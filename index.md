@@ -29,11 +29,7 @@ For your final milestone, explain the outcome of your project. Key details to in
 <iframe width="560" height="315" src="https://www.youtube.com/embed/y3VAmNlER5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
-
-
-
-
-
+https://github.com/user-attachments/assets/8259d1ae-22a5-4189-adcb-918a07aa95fe
 
 
 
