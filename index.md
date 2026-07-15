@@ -28,11 +28,10 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/y3VAmNlER5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-For your second milestone, explain what you've worked on since your previous milestone. You can highlight:
-- Technical details of what you've accomplished and how they contribute to the final goal
-- What has been surprising about the project so far
-- Previous challenges you faced that you overcame
-- What needs to be completed before your final milestone 
+
+  FOr my second milestone, I designed the mount of the solar panel through a CAD program called Onshape, printed it out, and installed the solar tracker.
+
+  By extruding and lofting 2d sketches, I managed to create a hollowed out frustum as the base, which has a recangular prism hole where a Servo Motor would snap on. Connecting to the rotating tip of the Servo motor is a cyllinder, which is rotated. Two beams hold up the panel, where one end has a motor to tilt the panel up and down, with the other end being connected loosely by a bolt and nut. 
 
 # First Milestone
 
