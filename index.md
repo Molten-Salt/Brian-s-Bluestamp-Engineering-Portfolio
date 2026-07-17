@@ -68,9 +68,9 @@ https://www.markdownguide.org/extended-syntax/
 ```
 #include <Servo.h>
 
-int POS = 0;
+int POS = 90;
 
-int i = 0;
+int i = 90;
 
 Servo servo_6;
 
