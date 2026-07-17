@@ -35,9 +35,9 @@ https://github.com/user-attachments/assets/8259d1ae-22a5-4189-adcb-918a07aa95fe
 
 
 
-  FOr my second milestone, I designed the mount of the solar panel through a CAD program called Onshape, printed it out, and installed the solar tracker.
+  FOr my second milestone, I designed the mount of the solar panel through a CAD program called Onshape.
 
-  By extruding and lofting 2d sketches, I managed to create a hollowed out frustum as the base, which has a recangular prism hole where a Servo Motor would snap on. Connecting to the rotating tip of the Servo motor is a cyllinder, which is rotated. Two beams hold up the panel, where one end has a motor to tilt the panel up and down, with the other end being connected loosely by a bolt and nut. 
+  By extruding and lofting 2d sketches, I managed to create a hollowed out frustum as the base, which has a rectangular prism hole to fit a Servo Motor. Connecting to the rotating tip of the Servo motor is the base which holds up the panel. On one end of a beam, there will be a motor to tilt the panel up and down, with the other end being connected loosely by a bolt and nut. 
 
 # First Milestone
 
