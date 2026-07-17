@@ -62,41 +62,77 @@ For my First Milestone, I have written my code through Tinkercad, which converts
 
 
 # Code
-Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
+Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to 
 
 #include <Servo.h>
-Servo servo_A5;
-int POS = 90;
-const int DEADBAND = 15; 
 
-void setup() {
-  servo_A5.attach(A5, 500, 2500);
+int POS = 0;
+
+int i = 0;
+
+Servo servo_6;
+
+Servo servo_0;
+
+Servo servo_5;
+
+void setup()
+{
+  servo_6.attach(6, 500, 2500);
+  servo_0.attach(0, 500, 2500);
   Serial.begin(9600);
   pinMode(A0, INPUT);
   pinMode(A1, INPUT);
-  servo_A5.write(90);
+  pinMode(A4, INPUT);
+  pinMode(A5, INPUT);
+  servo_5.attach(5, 500, 2500);
+  pinMode(A2, INPUT);
+  pinMode(2, OUTPUT);
+
+  servo_6.write(90);
+  servo_0.write(90);
   POS = 90;
 }
 
-void loop() {
-  int a0 = analogRead(A0);
-  int a1 = analogRead(A1);
-  int diff = a1 - a0;
-
-  Serial.print("servo:"); Serial.println(POS);
-  Serial.print("A0:"); Serial.println(a0);
-  Serial.print("A1:"); Serial.println(a1);
-
-  if (diff > DEADBAND) {
-    POS = constrain(POS + 2, 5, 175);   // stay off hard 0/180
-    servo_A5.write(POS);
-  } else if (diff < -DEADBAND) {
-    POS = constrain(POS - 2, 5, 175);
-    servo_A5.write(POS);
+void loop()
+{
+  Serial.print("A0: ");
+  Serial.println(analogRead(A0));
+  Serial.print("A1: ");
+  Serial.println(analogRead(A1));
+  Serial.print("A4: ");
+  Serial.println(analogRead(A4));
+  Serial.print("A5: ");
+  Serial.println(analogRead(A5));
+  if (analogRead(A1) > analogRead(A0)) {
+    POS = (POS + 3);
+    servo_6.write(POS);
+  } else {
+    if (analogRead(A1) < analogRead(A0)) {
+      POS = (POS - 3);
+      servo_6.write(POS);
+    }
+  }
+  if (analogRead(A4) > analogRead(A5)) {
+    POS = (POS + 3);
+    servo_5.write(POS);
+  } else {
+    if (analogRead(A4) < analogRead(A5)) {
+      POS = (POS - 3);
+      servo_5.write(POS);
+    }
   }
 
-  delay(50);  // slow the loop so the servo can settle before re-checking
+  Serial.print("Temp:");
+  Serial.println((-40 + 0.488155 * (analogRead(A2) - 20)));
+  if ((-40 + 0.488155 * (analogRead(A2) - 20)) > 40) {
+    digitalWrite(2, HIGH);
+  } else {
+    digitalWrite(2, LOW);
+  }
+  delay(10); // Delay a little bit to improve simulation performance
 }
+
 
 
 # Bill of Materials
