@@ -59,6 +59,8 @@ For my First Milestone, I have written my code through Tinkercad, which converts
 # Schematics 
 
 <img width="1002" height="778" alt="Screenshot 2026-07-15 at 11 24 14 AM" src="https://github.com/user-attachments/assets/74aee092-eeef-4cba-8b26-623abbec29af" />
+<img width="1146" height="886" alt="Screenshot 2026-07-17 at 11 54 58 AM" src="https://github.com/user-attachments/assets/2cc0e38e-0b6e-4ae6-b4c0-412491e0dd7a" />
+
 
 
 # Code
