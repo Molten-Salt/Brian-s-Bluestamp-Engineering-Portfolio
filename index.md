@@ -62,9 +62,9 @@ For my First Milestone, I have written my code through Tinkercad, which converts
 
 
 # Code
-'''
-Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to 
 
+https://www.markdownguide.org/extended-syntax/
+```
 #include <Servo.h>
 
 int POS = 0;
@@ -133,7 +133,7 @@ void loop()
   }
   delay(10); // Delay a little bit to improve simulation performance
 }
-'''
+```
 
 
 # Bill of Materials
