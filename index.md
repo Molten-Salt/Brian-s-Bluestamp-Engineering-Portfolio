@@ -12,6 +12,10 @@ In order to maximize electrcity generation, I created a device that would follow
 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/JbJ70Yp1YcA?si=nc6Ti0EgEx7VySFC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+I've installed the photoresistors to complete the solar tracker. Soldering all these parts into this small perfboard came with many difficulties. many shorts were created, which required a lot of desoldering. I learned CAD and soldering, and I will continue to create more engineering projects on my own. 
+
+
+
 
 For your final milestone, explain the outcome of your project. Key details to include are:
 - What you've accomplished since your previous milestone
@@ -24,6 +28,7 @@ For your final milestone, explain the outcome of your project. Key details to in
 # Second Milestone
 
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
+
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/y3VAmNlER5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
