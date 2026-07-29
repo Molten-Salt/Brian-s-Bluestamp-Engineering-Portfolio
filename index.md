@@ -71,71 +71,101 @@ https://www.markdownguide.org/extended-syntax/
 ```
 #include <Servo.h>
 
-int POS = 90;
+// --- SERVO DEFINITIONS ---
+Servo panServo;   
+Servo tiltServo;
+// --- PIN DEFINITIONS ---
+const int LDR_TOP_LEFT     = A1;
+const int LDR_BOTTOM_LEFT  = A0;
+const int LDR_TOP_RIGHT    = A5;
+const int LDR_BOTTOM_RIGHT = A4;
 
-int i = 90;
+// --- SAFE BOUNDARIES ---
+const int TILT_MIN = 10;   // Lowest tilt boundary
+const int TILT_MAX = 170;  // Highest tilt boundary
+const int PAN_MIN  = 0;   // Left pan limit
+const int PAN_MAX  = 177;  // Right pan limit
 
-Servo servo_6;
+// --- TUNING & SPEED SETTINGS ---
+int tiltAngle = 90;   // Start centered
+int panAngle  = 90;   // Start centered
 
-Servo servo_0;
+const int STEP_SIZE  = 3;   // Movement step size (degrees)
+const int STEP_DELAY = 30;  // Loop delay (ms)
+const int DEADBAND   = 20;  // Sensitivity threshold
 
-Servo servo_5;
+// --- CALIBRATION MULTIPLICATIVE SCALARS ---
+// Adjust these fine-tuning multipliers (e.g., 0.95 to 1.05) to balance sensor readings
+const float SCALE_TL = 1.00; 
+const float SCALE_BL = 1.2; 
+const float SCALE_TR = 1.00; 
+const float SCALE_BR = 2.70; 
 
-void setup()
-{
-  servo_6.attach(6, 500, 2500);
-  servo_0.attach(0, 500, 2500);
+void setup() {
   Serial.begin(9600);
-  pinMode(A0, INPUT);
-  pinMode(A1, INPUT);
-  pinMode(A4, INPUT);
-  pinMode(A5, INPUT);
-  servo_5.attach(5, 500, 2500);
-  pinMode(A2, INPUT);
-  pinMode(2, OUTPUT);
 
-  servo_6.write(90);
-  servo_0.write(90);
-  POS = 90;
+  // Staggered startup sequence
+  panServo.write(panAngle);
+  panServo.attach(6);
+  delay(300);
+
+  tiltServo.write(tiltAngle);
+  tiltServo.attach(5);
+  delay(300);
 }
 
-void loop()
-{
-  Serial.print("A0: ");
-  Serial.println(analogRead(A0));
-  Serial.print("A1: ");
-  Serial.println(analogRead(A1));
-  Serial.print("A4: ");
-  Serial.println(analogRead(A4));
-  Serial.print("A5: ");
-  Serial.println(analogRead(A5));
-  if (analogRead(A1) > analogRead(A0)) {
-    POS = (POS + 3);
-    servo_6.write(POS);
-  } else {
-    if (analogRead(A1) < analogRead(A0)) {
-      POS = (POS - 3);
-      servo_6.write(POS);
-    }
-  }
-  if (analogRead(A4) > analogRead(A5)) {
-    POS = (POS + 3);
-    servo_5.write(POS);
-  } else {
-    if (analogRead(A4) < analogRead(A5)) {
-      POS = (POS - 3);
-      servo_5.write(POS);
-    }
+void loop() {
+  // 1. Read raw analog values from LDR pins
+  int rawTL = analogRead(LDR_TOP_LEFT);
+  int rawBL = analogRead(LDR_BOTTOM_LEFT);
+  int rawTR = analogRead(LDR_TOP_RIGHT);
+  int rawBR = analogRead(LDR_BOTTOM_RIGHT);
+
+  // 2. Apply multiplicative scaling calibration
+  int topLeft     = rawTL * SCALE_TL;
+  int bottomLeft  = rawBL * SCALE_BL;
+  int topRight    = rawTR * SCALE_TR;
+  int bottomRight = rawBR * SCALE_BR;
+
+  // 3. Average sensor pairs for dual-axis tracking
+  int avgTop    = (topLeft + topRight) / 2;
+  int avgBottom = (bottomLeft + bottomRight) / 2;
+  int avgLeft   = (topLeft + bottomLeft) / 2;
+  int avgRight  = (topRight + bottomRight) / 2;
+
+  // 4. Print ONLY adjusted/scaled values to Serial Monitor
+  Serial.print("ADJ -> TL:"); Serial.print(topLeft);
+  Serial.print(" BL:");       Serial.print(bottomLeft);
+  Serial.print(" TR:");       Serial.print(topRight);
+  Serial.print(" BR:");       Serial.print(bottomRight);
+  Serial.print(" | Tilt:");   Serial.print(tiltAngle);
+  Serial.print(" Pan:");      Serial.println(panAngle);
+
+  // --- VERTICAL AXIS (TILT) ---
+  int vertDiff = avgTop - avgBottom;
+  if (vertDiff > DEADBAND) {
+    tiltAngle += STEP_SIZE; 
+  } else if (vertDiff < -DEADBAND) {
+    tiltAngle -= STEP_SIZE; 
   }
 
-  Serial.print("Temp:");
-  Serial.println((-40 + 0.488155 * (analogRead(A2) - 20)));
-  if ((-40 + 0.488155 * (analogRead(A2) - 20)) > 40) {
-    digitalWrite(2, HIGH);
-  } else {
-    digitalWrite(2, LOW);
+  // --- HORIZONTAL AXIS (PAN) ---
+  int horizDiff = avgLeft - avgRight;
+  if (horizDiff > DEADBAND) {
+    panAngle -= STEP_SIZE;  // Swap sign if pan turns away from light
+  } else if (horizDiff < -DEADBAND) {
+    panAngle += STEP_SIZE;  
   }
-  delay(10); // Delay a little bit to improve simulation performance
+
+  // Enforce mechanical limits
+  tiltAngle = constrain(tiltAngle, TILT_MIN, TILT_MAX);
+  panAngle  = constrain(panAngle, PAN_MIN, PAN_MAX);
+
+  // Output position updates to servos
+  tiltServo.write(tiltAngle);
+  panServo.write(panAngle);
+
+  delay(STEP_DELAY);
 }
 ```
 
