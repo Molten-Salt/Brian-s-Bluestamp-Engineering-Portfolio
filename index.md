@@ -1,4 +1,4 @@
-# Dual Axis Solar Tracker with Liquid Cooling Loop
+# Dual Axis Solar Tracker 
 In order to maximize electrcity generation, I created a device that would follow the sun. By comparing the difference of voltage from 2 photoresistors on opposite sides, the ardunio would order a servo motor to rotate, dyamically moveing the solar panel alongside a dual axis so it would be perpendicular to the sun. Because solar panels lose efficacy as temperature increases above 25 C, I decided to create a negative feedback cooling system. If the temperature increases above a certain amount above a set threshold,a pump will pump cooled water into a aluinimum cooling block, which has billions of microscopic microchannels to maximize surface area (maximizes collisions) so that heat transfers to the water, which flows to a radiator, where a fan would assist in its cooling. The water then flows back to the pump tank, where it shall be reused in a cycle. 
 
 
@@ -159,18 +159,3 @@ Don't forget to place the link of where to buy each component inside the quotati
 |Radiator fan|Assits the radiator| $34.95|<a href="https://www.amazon.com/dp/B07DXQTCK6?th=1/"> link </a>|
 |G1/4 Thread with OD 4mm Nozzle|Screws into the radiator's threaded ports so the silicone tubing can connect|$14.39|<a href="https://www.amazon.com/uxcell-Fitting-Thread-Nozzle-Cooling/dp/B091YQZC3Y?th=1/"> link </a>|
 |8mm to 4mm|Bridges the gap between the water block’s 8mm and the tubing|$6.11|<a href="https://www.amazon.com/dp/B07ZCQ5D8F?th=1"> link </a>|
-
-
-
-
-
-
-
-
-# Other Resources/Examples
-One of the best parts about Github is that you can view how other people set up their own work. Here are some past BSE portfolios that are awesome examples. You can view how they set up their portfolio, and you can view their index.md files to understand how they implemented different portfolio components.
-- [Example 1](https://trashytuber.github.io/YimingJiaBlueStamp/)
-- [Example 2](https://sviatil0.github.io/Sviatoslav_BSE/)
-- [Example 3](https://arneshkumar.github.io/arneshbluestamp/)
-
-To watch the BSE tutorial on how to create a portfolio, click here.
