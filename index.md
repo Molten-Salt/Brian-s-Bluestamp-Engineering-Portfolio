@@ -25,9 +25,7 @@ I installed the photoresistors to complete the solar tracker. Soldering all thes
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/DKBY4hZPokM?si=iDBtwOJHNVWD8kCy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-For my second milestone, I designed the solar panel mount in Onshape, a CAD program.
-
-By extruding and lofting 2D sketches, I created a hollowed-out frustum for the base, with a rectangular-prism cutout that holds a servo motor. The servo's rotating shaft connects to a base that supports the panel. On one end of a beam sits a second motor that tilts the panel up and down; the other end is loosely connected with a bolt and nut.
+For my second milestone, I designed the solar panel mount in Onshape, a CAD program. By extruding and lofting 2D sketches, I created a hollowed-out frustum for the base, with a rectangular-prism cutout that holds a servo motor. The servo's rotating shaft connects to a base that supports the panel. On one end of a beam sits a second motor that tilts the panel up and down; the other end is loosely connected with a bolt and nut.
 
 ---
 
@@ -37,9 +35,7 @@ By extruding and lofting 2D sketches, I created a hollowed-out frustum for the b
 
 <img width="560" height="450" alt="Screenshot 2026-07-13 at 8 48 04 AM" src="https://github.com/user-attachments/assets/06054deb-a1b5-4681-8e16-ffc33836b6a6" />
 
-For my first milestone, I wrote code in Tinkercad, which converts block-based logic into C++ — the language the Arduino IDE reads and compiles down to binary for the board to run.
-
-The Arduino's 5V pin powers the breadboard's positive rail. Along this rail sits the servo motor's power pin, supplying it with energy. A male-to-male jumper wire connects the Arduino's ground pin to the breadboard's negative rail, completing the return path for current. Further up the positive rail are the legs of two photoresistors; their other legs connect to a shared point on the breadboard where, in the same column, a 10kΩ resistor ties back to the negative rail, pulling that node to 0V. Above each resistor, a jumper wire runs to an analog input pin for reading. In the code, pins A0 and A1 are read and used to drive the motor's rotation.
+For my first milestone, I created the algorithm in Tinkercad, which converts block-based logic into C++ — the language the Arduino IDE reads and compiles down to binary for the board to run. The Arduino's 5V pin powers the breadboard's positive rail. Along this rail sits the servo motor's power pin, supplying it with energy. A male-to-male jumper wire connects the Arduino's ground pin to the breadboard's negative rail, completing the return path for current. Further up the positive rail are the legs of two photoresistors; their other legs connect to a shared point on the breadboard where, in the same column, a 10kΩ resistor ties back to the negative rail, pulling that node to 0V. Above each resistor, a jumper wire runs to an analog input pin for reading. In the code, pins A0 and A1 are read and used to drive the motor's rotation.
 
 <img width="560" height="375" alt="IMG_0272" src="https://github.com/user-attachments/assets/883433e1-7c0b-463b-aca5-90b6efa8dd01" />
 
