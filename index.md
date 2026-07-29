@@ -6,8 +6,8 @@ In order to maximize electrcity generation, I created a device that would follow
 
 **Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
 
-![Headstone Image](logo.svg)
-  
+<img width="1365" height="1820" alt="image" src="https://github.com/user-attachments/assets/36a56b77-d04a-482f-ad11-3cdfdcc688dd" />
+
 # Final Milestone
 
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
