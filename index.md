@@ -2,7 +2,12 @@
 In order to maximize electrcity generation, I created a device that would follow the sun. By comparing the difference of voltage from 2 photoresistors on opposite sides, the ardunio would order a servo motor to rotate, dyamically moveing the solar panel alongside a dual axis so it would be perpendicular to the sun. Because solar panels lose efficacy as temperature increases above 25 C, I decided to create a negative feedback cooling system. If the temperature increases above a certain amount above a set threshold,a pump will pump cooled water into a aluinimum cooling block, which has billions of microscopic microchannels to maximize surface area (maximizes collisions) so that heat transfers to the water, which flows to a radiator, where a fan would assist in its cooling. The water then flows back to the pump tank, where it shall be reused in a cycle. 
 
 
+
 | Brian C | Gunn High | Electrical Engineering | Incoming Junior |
+
+
+
+
 
 
 <img width="315" height="560" alt="IMG_1655" src="https://github.com/user-attachments/assets/5f2d9f62-b88f-49d2-ad0a-441a9382b1f9" />
