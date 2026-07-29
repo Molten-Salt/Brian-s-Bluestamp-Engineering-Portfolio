@@ -4,7 +4,6 @@ In order to maximize electrcity generation, I created a device that would follow
 
 | Brian C | Gunn High | Electrical Engineering | Incoming Junior |
 
-**Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
 
 <img width="800" height="1120" alt="image" src="https://github.com/user-attachments/assets/36a56b77-d04a-482f-ad11-3cdfdcc688dd" />
 
