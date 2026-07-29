@@ -5,7 +5,7 @@ In order to maximize electrcity generation, I created a device that would follow
 | Brian C | Gunn High | Electrical Engineering | Incoming Junior |
 
 
-<img width="4284" height="3712" alt="IMG_1655" src="https://github.com/user-attachments/assets/5f2d9f62-b88f-49d2-ad0a-441a9382b1f9" />
+<img width="315" height="560" alt="IMG_1655" src="https://github.com/user-attachments/assets/5f2d9f62-b88f-49d2-ad0a-441a9382b1f9" />
 
 
 # Final Milestone
