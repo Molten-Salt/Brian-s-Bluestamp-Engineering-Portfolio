@@ -4,7 +4,7 @@ A stationary solar panel only points directly at the sun for a moment each day, 
 
 | Brian C | Gunn High | Electrical Engineering | Incoming Junior |
 ---
-<img width="1008" height="762" alt="Brian C" src="https://github.com/user-attachments/assets/d1018f1b-3417-4495-9aef-23aeda31b950" />
+<img width="672" height="508" alt="Brian C" src="https://github.com/user-attachments/assets/d1018f1b-3417-4495-9aef-23aeda31b950" />
 
 ---
 ## First Milestone
@@ -51,7 +51,7 @@ I installed the photoresistors to complete the solar tracker. Soldering all thes
 
 Four light-dependent resistors (LDRs) are placed on the corners of the panel. Each LDR's resistance drops as more light hits it, so shining light unevenly across the four sensors produces four different voltage readings on the Arduino Analog pins. If the top sensors are reading brighter than the bottom (or the left brighter than the right) by a small deadband, the Arduino nudges the corresponding servo a few degrees in that direction. Running this comparison in a continuous loop lets the mount creep toward the sun in small steps throughout the day, on both the vertical (tilt) and horizontal (pan) axes.  The deadband keeps the servos from jittering back and forth chasing tiny, insignificant differences between sensors. 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/JbJ70Yp1YcA?si=nc6Ti0EgEx7VySFC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 
 
 
