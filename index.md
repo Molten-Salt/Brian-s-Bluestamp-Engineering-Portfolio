@@ -3,39 +3,19 @@
 A stationary solar panel only points directly at the sun for a moment each day, which means it spends most of its time collecting light at an angle instead of head-on. To close that gap, I built a dual-axis solar tracker: a mount that dynamically adjusts the panel so its surface stays perpendicular to the sun as it moves across the sky, absorbing more sunlight— and therefore more electricity — out of the same panel. I also added a liquid cooling loop, since panel efficiency drops as temperature rises. 
 
 | Brian C | Gunn High | Electrical Engineering | Incoming Junior |
-
-
-
-
 ---
-
-
-
-
-
-
-
-
-
 <img width="1008" height="762" alt="Brian C" src="https://github.com/user-attachments/assets/d1018f1b-3417-4495-9aef-23aeda31b950" />
-
 
 ---
 ## First Milestone
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/R-oDt9jQxLU?si=cud6JWD-leJm_vVq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+In order to get the Servo Motors to rotate the solar panel to the direction of the sun, I needed 3 core parts.
+Light dependent resistors (LDRs), Servo Motors, and the algorithm to run it. 
+The LDRs receive electricity from the Arduino, with the resistance against this flow decreasing with greater brightness. As this power flows back to ground, a signal wire read this quantity, and takes it to the Arduino's analog pin to be read. These values are then outputted to the IDE's serial monitor, where if-then-else statements in C++ tell the Servo Motors to rotate. 
 
-
-In order to get the Servo Motors to rotate the solar panel to the direction of the sun, I needed light dependent resistors (LDRs), Servo Motors, and the algorithm to run it. 
-The LDRs receive power from the arduino, but the resistance decreases, with greater amount of light, and this quantity is read through the Arduino's analog pins. 
-
-
-The core of the algorithm are if-then-else statements. 
-
-
-The Arduino's 5V pin powers the breadboard's positive rail. Along this rail sits the servo motor's power pin, supplying it with energy. A male-to-male jumper wire connects the Arduino's ground pin to the breadboard's negative rail, completing the return path for current. Further up the positive rail are the legs of two photoresistors; their other legs connect to a shared point on the breadboard where, in the same column, a 10kΩ resistor ties back to the negative rail, pulling that node to 0V. Above each resistor, a jumper wire runs to an analog input pin for reading. In the code, pins A0 and A1 are read and used to drive the motor's rotation.
-
+T
 <img width="560" height="375" alt="IMG_0272" src="https://github.com/user-attachments/assets/883433e1-7c0b-463b-aca5-90b6efa8dd01" />
 
 
