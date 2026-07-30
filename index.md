@@ -9,13 +9,19 @@ A stationary solar panel only points directly at the sun for a moment each day, 
 ---
 ## First Milestone
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/R-oDt9jQxLU?si=cud6JWD-leJm_vVq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 In order to get the Servo Motors to rotate the solar panel to the direction of the sun, I needed 3 core parts.
 Light dependent resistors (LDRs), Servo Motors, and the algorithm to run it. 
 The LDRs receive electricity from the Arduino, with the resistance against this flow decreasing with greater brightness. As this power flows back to ground, a signal wire read this quantity, and takes it to the Arduino's analog pin to be read. These values are then outputted to the IDE's serial monitor, where if-then-else statements in C++ tell the Servo Motors to rotate. 
 
-T
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/R-oDt9jQxLU?si=cud6JWD-leJm_vVq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+<img width="795" height="646" alt="Screenshot 2026-07-30 at 12 01 06 PM" src="https://github.com/user-attachments/assets/53507237-3d78-4e24-a181-2da9e8e1a504" />
+
+
+
 <img width="560" height="375" alt="IMG_0272" src="https://github.com/user-attachments/assets/883433e1-7c0b-463b-aca5-90b6efa8dd01" />
 
 ---
