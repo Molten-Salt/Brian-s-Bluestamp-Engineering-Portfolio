@@ -5,7 +5,7 @@ A stationary solar panel only points directly at the sun for a moment each day, 
 | Brian C | Gunn High | Electrical Engineering | Incoming Junior |
 
 
-<img width="315" height="560" alt="IMG_1655" src="https://github.com/user-attachments/assets/5f2d9f62-b88f-49d2-ad0a-441a9382b1f9" />
+<img width="4284" height="5712" alt="IMG_1655" src="https://github.com/user-attachments/assets/7ab4e05c-c064-4fb1-a865-59c09e094826" />
 
 ---
 
