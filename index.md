@@ -7,6 +7,13 @@ A stationary solar panel only points directly at the sun for a moment each day, 
 
 
 
+---
+
+
+
+
+
+
 
 
 
@@ -15,6 +22,10 @@ A stationary solar panel only points directly at the sun for a moment each day, 
 
 
 ---
+
+
+
+
 
 ## Final Milestone
 
