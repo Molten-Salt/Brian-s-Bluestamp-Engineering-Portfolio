@@ -17,7 +17,7 @@ A stationary solar panel only points directly at the sun for a moment each day, 
 
 
 
-<img width="2016" height="1512" alt="Brian C" src="https://github.com/user-attachments/assets/d1018f1b-3417-4495-9aef-23aeda31b950" />
+<img width="1008" height="762" alt="Brian C" src="https://github.com/user-attachments/assets/d1018f1b-3417-4495-9aef-23aeda31b950" />
 
 
 ---
