@@ -18,11 +18,22 @@ The LDRs receive electricity from the Arduino, with the resistance against this 
 T
 <img width="560" height="375" alt="IMG_0272" src="https://github.com/user-attachments/assets/883433e1-7c0b-463b-aca5-90b6efa8dd01" />
 
-
+---
 
 ---
 
+## Second Milestone
 
+For my second milestone, I designed the solar panel mount in Onshape, a CAD program.
+
+By extruding and lofting 2D sketches, I created a hollowed-out frustum for the base, with a rectangular-prism cutout that holds a servo motor. The servo's rotating shaft connects to a base that supports the panel. On one end of a beam sits a second motor that tilts the panel up and down; the other end is loosely connected with a bolt and nut.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/w8I2iujtMhk?si=RQaVOStHIRxvRER_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/DKBY4hZPokM?si=iDBtwOJHNVWD8kCy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
 
 
 
@@ -38,21 +49,7 @@ Four light-dependent resistors (LDRs) are placed on the corners of the panel. Ea
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/JbJ70Yp1YcA?si=nc6Ti0EgEx7VySFC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
----
 
-## Second Milestone
-
-For my second milestone, I designed the solar panel mount in Onshape, a CAD program.
-
-By extruding and lofting 2D sketches, I created a hollowed-out frustum for the base, with a rectangular-prism cutout that holds a servo motor. The servo's rotating shaft connects to a base that supports the panel. On one end of a beam sits a second motor that tilts the panel up and down; the other end is loosely connected with a bolt and nut.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/w8I2iujtMhk?si=RQaVOStHIRxvRER_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/DKBY4hZPokM?si=iDBtwOJHNVWD8kCy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-
----
 
 ## Schematics
 
