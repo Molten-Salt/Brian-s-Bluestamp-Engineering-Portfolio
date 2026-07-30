@@ -3,7 +3,7 @@
 A stationary solar panel only points directly at the sun for a moment each day, which means it spends most of its time collecting light at an angle instead of head-on. To close that gap, I built a dual-axis solar tracker: a mount that dynamically adjusts the panel so its surface stays perpendicular to the sun as it moves across the sky, absorbing more sunlight— and therefore more electricity — out of the same panel. I also added a liquid cooling loop, since panel efficiency drops as temperature rises. 
 
 | Brian C | Gunn High | Electrical Engineering | Incoming Junior |
-|:--:|:--:|:--:|:--:|
+
 
 <img width="315" height="560" alt="IMG_1655" src="https://github.com/user-attachments/assets/5f2d9f62-b88f-49d2-ad0a-441a9382b1f9" />
 
@@ -16,6 +16,8 @@ A stationary solar panel only points directly at the sun for a moment each day, 
 I installed the photoresistors to complete the solar tracker. Soldering all these parts onto a small perfboard came with plenty of difficulties-- I created a ton of shorts, which required a  lot of desoldering. 
 
 Four light-dependent resistors (LDRs) are placed on the corners of the panel. Each LDR's resistance drops as more light hits it, so shining light unevenly across the four sensors produces four different voltage readings on the Arduino Analog pins. If the top sensors are reading brighter than the bottom (or the left brighter than the right) by a small deadband, the Arduino nudges the corresponding servo a few degrees in that direction. Running this comparison in a continuous loop lets the mount creep toward the sun in small steps throughout the day, on both the vertical (tilt) and horizontal (pan) axes.  The deadband keeps the servos from jittering back and forth chasing tiny, insignificant differences between sensors. 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JbJ70Yp1YcA?si=nc6Ti0EgEx7VySFC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 
