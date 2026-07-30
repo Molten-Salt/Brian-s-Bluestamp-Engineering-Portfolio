@@ -22,8 +22,6 @@ The LDRs receive electricity from the Arduino, with the resistance against this 
 
 
 
-<img width="560" height="375" alt="IMG_0272" src="https://github.com/user-attachments/assets/883433e1-7c0b-463b-aca5-90b6efa8dd01" />
-
 ---
 
 ---
