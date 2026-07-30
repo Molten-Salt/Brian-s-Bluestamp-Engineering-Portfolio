@@ -1,0 +1,14 @@
+---
+---
+@import "{{ site.theme }}";
+
+/* Make the page container wider */
+.inner {
+  max-width: 1200px !important; 
+  width: 90% !important;
+}
+
+/* Give the main content text area more breathing room */
+#main-content {
+  width: 75% !important;
+}
