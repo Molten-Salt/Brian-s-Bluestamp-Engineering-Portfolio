@@ -40,9 +40,10 @@ void loop() {
 
 You can't actually command a Servo Motor to move 3 degrees clockwise, or 15 degrees counterclockwise, because It doesn't remember its current position after you stop powering the Motor! You can only command it to move to a certain degree. Because of these limitations I made it so that the Servo Motor would start at the fixed position of 90 degrees (so that it can go in both directions), and assigned a variable to be always equal to the Servo Position (POS). Everytime the algorithm is repeated, POS changes ±3, thereby rotating the servo Motor. 
 
-
  
-<img width="397.5" height="323" alt="Screenshot 2026-07-30 at 12 01 06 PM" src="https://github.com/user-attachments/assets/53507237-3d78-4e24-a181-2da9e8e1a504" /> <iframe width="560" height="315" src="https://www.youtube.com/embed/R-oDt9jQxLU?si=cud6JWD-leJm_vVq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<img width="397.5" height="323" alt="Screenshot 2026-07-30 at 12 01 06 PM" src="https://github.com/user-attachments/assets/53507237-3d78-4e24-a181-2da9e8e1a504" /> 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/R-oDt9jQxLU?si=cud6JWD-leJm_vVq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
 ---
