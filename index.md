@@ -41,17 +41,24 @@ You can't actually command a Servo Motor to move 3 degrees clockwise, or 15 degr
 
  
 
-<div class="row">
-  <div class="column">
-    <img width="397.5" height="323" alt="Screenshot 2026-07-30 at 12 01 06 PM" src="https://github.com/user-attachments/assets/53507237-3d78-4e24-a181-2da9e8e1a504" /> 
-  </div>
-  <div class="column">
-        <img width="397.5" height="323" alt="Screenshot 2026-07-30 at 12 01 06 PM" src="https://github.com/user-attachments/assets/53507237-3d78-4e24-a181-2da9e8e1a504" /> 
-  </div>
 
-</div>
+<table>
+  <tr>
+    <td width="50%">
+    <img width="397.5" height="323" alt="Screenshot 2026-07-30 at 12 01 06 PM" src="https://github.com/user-attachments/assets/53507237-3d78-4e24-a181-2da9e8e1a504" />  
+    </td>
+    <td width="50%">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/R-oDt9jQxLU?si=cud6JWD-leJm_vVq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <!-- If the platform blocks iframes, use a linked image instead -->
+      
+    </td>
+  </tr>
+</table>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/R-oDt9jQxLU?si=cud6JWD-leJm_vVq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+
+
 
 ---
 
