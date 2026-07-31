@@ -14,8 +14,7 @@ A stationary solar panel only points directly at the sun for a moment each day, 
 
 In order to get the Servo Motors to rotate the solar panel to the direction of the sun, I needed 3 core parts.
 Light dependent resistors (LDRs), Servo Motors, and the algorithm to run it. 
-The LDRs receive electricity from the Arduino, with the resistance against this flow decreasing with greater brightness. As this power flows back to ground, a signal wire read this quantity, and takes it to the Arduino's analog pin to be read. These values are then outputted to the IDE's serial monitor, where if-then-else statements in C++ tell the Servo Motors to rotate. 
-
+The LDRs receive electricity from the Arduino, with the resistance against this flow decreasing with greater brightness. As this power flows back to ground, a signal wire read this quantity, and takes it to the Arduino's analog pin to be read. These values are then outputted to the IDE's serial monitor, where if-then-else statements in C++ tell the Servo Motors to rotate to the direction of greater light. 
 ```
 int POS = 90;
 
