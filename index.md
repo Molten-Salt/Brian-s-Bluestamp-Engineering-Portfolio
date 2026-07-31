@@ -63,8 +63,7 @@ For my second milestone, I designed the solar panel mount in Onshape, a CAD prog
 
 
 
-
-By extruding and lofting 2D sketches, I created a hollowed-out frustum to serve as the base. In the base, a servo motor holds up, and rotates a cylinder base, which hold up rectangular beams to hold the solar panel.  On one end of a beam sits a second motor that tilts the panel up and down; the other end is loosely connected with a bolt and nut.
+By extruding and lofting 2D sketches, I created a hollowed-out frustum to serve as the base. A cylinder with two rectangular beams to be rotated, and a 3D U shape to be tilted. 
 
 
 
@@ -94,7 +93,7 @@ I installed the photoresistors to complete the solar tracker. Soldering all thes
 
 
 
-Four light-dependent resistors (LDRs) are placed on the corners of the panel. Each LDR's resistance drops as more light hits it, so shining light unevenly across the four sensors produces four different voltage readings on the Arduino Analog pins. If the top sensors are reading brighter than the bottom (or the left brighter than the right) by a small deadband, the Arduino nudges the corresponding servo a few degrees in that direction. Running this comparison in a continuous loop lets the mount creep toward the sun in small steps throughout the day, on both the vertical (tilt) and horizontal (pan) axes.  The deadband keeps the servos from jittering back and forth chasing tiny, insignificant differences between sensors. 
+ Each LDR's resistance drops as more light hits it, so shining light unevenly across the four sensors produces four different voltage readings on the Arduino Analog pins. If the top sensors are reading high volts than the bottom (or the left brighter than the right) by a small deadband, the Arduino nudges the corresponding servo a few degrees in that direction. Running this comparison in a continuous loop lets the mount creep toward the sun in small steps throughout the day, on both the vertical (tilt) and horizontal (pan) axes.  The deadband keeps the servos from jittering back and forth chasing tiny, insignificant differences between sensors. 
 
 
 
