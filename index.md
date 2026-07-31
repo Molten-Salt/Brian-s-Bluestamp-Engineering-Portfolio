@@ -73,21 +73,14 @@ For my second milestone, I designed the solar panel mount in Onshape, a CAD prog
 <table>
   <tr>
     <td width="50%">
-   
-
-
-<img width="611.5" height="528.5" alt="Screenshot 2026-07-31 at 9 19 01 AM" src="https://github.com/user-attachments/assets/92462f74-b4ea-47ff-a06a-dabb5dd7edfb" />
+   <img width="611.5" height="528.5" alt="Screenshot 2026-07-31 at 9 19 01 AM" src="https://github.com/user-attachments/assets/92462f74-b4ea-47ff-a06a-dabb5dd7edfb" />
 
     </td>
     <td width="50%">
      <iframe width="560" height="315" src="https://www.youtube.com/embed/w8I2iujtMhk?si=RQaVOStHIRxvRER_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       <!-- If the platform blocks iframes, use a linked image instead -->
-      
-    </td>
-    
-
-
-  </tr>
+         </td>
+     </tr>
 </table>
 
 
