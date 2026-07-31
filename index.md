@@ -9,26 +9,44 @@ A stationary solar panel only points directly at the sun for a moment each day, 
 ---
 ## First Milestone
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/R-oDt9jQxLU?si=cud6JWD-leJm_vVq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 
 In order to get the Servo Motors to rotate the solar panel to the direction of the sun, I needed 3 core parts.
 Light dependent resistors (LDRs), Servo Motors, and the algorithm to run it. 
 The LDRs receive electricity from the Arduino, with the resistance against this flow decreasing with greater brightness. As this power flows back to ground, a signal wire read this quantity, and takes it to the Arduino's analog pin to be read. These values are then outputted to the IDE's serial monitor, where if-then-else statements in C++ tell the Servo Motors to rotate. 
 
 ```
-if (vertDiff > DEADBAND) {
-    tiltAngle += STEP_SIZE; 
-  } else if (vertDiff < -DEADBAND) {
-    tiltAngle -= STEP_SIZE; 
+int POS = 90;
+
+void setup() {
+  Serial.begin(9600);
+  panServo.attach(6);
+  panServo.write(POS);
+  delay(300);
+}
+
+void loop() {
+  Serial.print(analogRead(A1)); Serial.print(" "); Serial.print(analogRead(A0));
+  int Diff = analogRead(A1) - analogRead(A0);
+  if (Diff > 50) {
+    POS += 3;
+  } else if (Diff < -50) {
+    POS -= 3;
   }
+  panServo.write(POS);
+}
 ```
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/R-oDt9jQxLU?si=cud6JWD-leJm_vVq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+You can't actually command a Servo Motor to move 3 degrees clockwise, or 15 degrees counterclockwise, because It doesn't remember its current position after you stop powering the Motor! You can only command it to move to a certain degree. Because of these limitations I made it so that the Servo Motor would start at the fixed position of 90 degrees, and assigned a variable to be always equal to the Servo Position (POS). Everytime the algorithm is repeated, POS changes ±3, thereby moving the servo Motor. 
 
 
 
-You can't actually command a Servo Motor to move 3 degrees clockwise, or 15 degrees counterclockwise, because It doesn't remember its current position after you stop powering the Motor! 
+The 90 degrees was intentionally chosen, so that it could rotate in both directions. 
 
-Because of this, I made it so that the Servo Motor would start at the fixed position of 90 degrees, and assigned a variable to be always equal to the Servo Position (POS). The 90 degrees was intentionally chosen, so that it could rotate in both directions. 
+
+
+
 
 
 <img width="795" height="646" alt="Screenshot 2026-07-30 at 12 01 06 PM" src="https://github.com/user-attachments/assets/53507237-3d78-4e24-a181-2da9e8e1a504" />
