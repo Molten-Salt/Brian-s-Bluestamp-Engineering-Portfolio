@@ -66,7 +66,7 @@ For my second milestone, I designed the solar panel mount in Onshape, a CAD prog
 
 
 
-By extruding and lofting 2D sketches, I created a hollowed-out frustum to serve as the base, a cylinder with two rectangular beams to be rotated by a servo motor, and a U shape. On top of the base is a hole for the servo motor to snap on. The horn of the Servo is attached to the cylindric base via 2 miniature bolts. A hole is also placed on a recentgular beam, where a servo motor snaps on. The motor tilts the U shape, and therefore, the solar panel up and down. 
+By extruding and lofting 2D sketches, I created a hollowed-out frustum to serve as the base, a cylinder with two rectangular beams to be rotated by a servo motor, and a U shape. On top of the base is a hole for the servo motor to snap on. The horn of the Servo is attached to the cylindric base via 2 miniature bolts. A hole is also placed on the rectangular beam, where a servo motor snaps on. The motor tilts the U shape, and therefore, the solar panel up and down. The other beam provides structural support via a bolt and nut. 
 
 
 
