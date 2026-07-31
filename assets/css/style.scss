@@ -12,3 +12,11 @@
 #main-content {
   width: 75% !important;
 }
+/* Side-by-side images */
+.img-row {
+  display: flex;
+  gap: 10px;
+}
+.img-row img {
+  max-width: 48%;
+}
