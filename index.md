@@ -1,5 +1,8 @@
 # Dual Axis Solar Tracker
-I created a device that would follow the sun. 
+
+I built a device that would follow the sun. 
+
+
 A stationary solar panel only points directly at the sun for a moment each day, which means it spends most of its time collecting light at an angle instead of head-on. To close that gap, I built a dual-axis solar tracker: a device that dynamically adjusts the solar panel so its surface stays perpendicular to the sun as it moves across the sky, absorbing more sunlight— and therefore more electricity — out of the same panel.
 
 | Brian C | Gunn High | Electrical Engineering | Incoming Junior |
