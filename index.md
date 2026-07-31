@@ -47,7 +47,13 @@ You can't actually command a Servo Motor to move 3 degrees clockwise, or 15 degr
 
 ## Second Milestone
 
+
+
+
 For my second milestone, I designed the solar panel mount in Onshape, a CAD program. 
+
+
+
 
 
 
@@ -55,7 +61,13 @@ For my second milestone, I designed the solar panel mount in Onshape, a CAD prog
 
 
 
+
+
+
 By extruding and lofting 2D sketches, I created a hollowed-out frustum to serve as the base. In the base, a servo motor holds up, and rotates a cylinder base, which hold up rectangular beams to hold the solar panel.  On one end of a beam sits a second motor that tilts the panel up and down; the other end is loosely connected with a bolt and nut.
+
+
+
 
 
 
@@ -72,7 +84,12 @@ I installed the photoresistors to complete the solar tracker. Soldering all thes
 
 
 
+
+
+
 <iframe width="510" height="315" src="https://www.youtube.com/embed/JbJ70Yp1YcA?si=nc6Ti0EgEx7VySFC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
 
 
 
