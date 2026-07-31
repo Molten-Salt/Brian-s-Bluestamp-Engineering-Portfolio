@@ -53,6 +53,7 @@ For my second milestone, I designed the solar panel mount in Onshape, a CAD prog
 
 
 
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/w8I2iujtMhk?si=RQaVOStHIRxvRER_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
