@@ -1,6 +1,6 @@
 # Dual Axis Solar Tracker
-
-A stationary solar panel only points directly at the sun for a moment each day, which means it spends most of its time collecting light at an angle instead of head-on. To close that gap, I built a dual-axis solar tracker: a mount that dynamically adjusts the panel so its surface stays perpendicular to the sun as it moves across the sky, absorbing more sunlight— and therefore more electricity — out of the same panel. I also added a liquid cooling loop, since panel efficiency drops as temperature rises. 
+I created a device that would follow the sun. 
+A stationary solar panel only points directly at the sun for a moment each day, which means it spends most of its time collecting light at an angle instead of head-on. To close that gap, I built a dual-axis solar tracker: a device that dynamically adjusts the solar panel so its surface stays perpendicular to the sun as it moves across the sky, absorbing more sunlight— and therefore more electricity — out of the same panel.
 
 | Brian C | Gunn High | Electrical Engineering | Incoming Junior |
 ---
@@ -14,6 +14,13 @@ In order to get the Servo Motors to rotate the solar panel to the direction of t
 Light dependent resistors (LDRs), Servo Motors, and the algorithm to run it. 
 The LDRs receive electricity from the Arduino, with the resistance against this flow decreasing with greater brightness. As this power flows back to ground, a signal wire read this quantity, and takes it to the Arduino's analog pin to be read. These values are then outputted to the IDE's serial monitor, where if-then-else statements in C++ tell the Servo Motors to rotate. 
 
+```
+if (vertDiff > DEADBAND) {
+    tiltAngle += STEP_SIZE; 
+  } else if (vertDiff < -DEADBAND) {
+    tiltAngle -= STEP_SIZE; 
+  }
+```
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/R-oDt9jQxLU?si=cud6JWD-leJm_vVq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -27,7 +34,6 @@ Because of this, I made it so that the Servo Motor would start at the fixed posi
 <img width="795" height="646" alt="Screenshot 2026-07-30 at 12 01 06 PM" src="https://github.com/user-attachments/assets/53507237-3d78-4e24-a181-2da9e8e1a504" />
 
 
----
 
 ---
 
@@ -35,7 +41,7 @@ Because of this, I made it so that the Servo Motor would start at the fixed posi
 
 For my second milestone, I designed the solar panel mount in Onshape, a CAD program.
 
-By extruding and lofting 2D sketches, I created a hollowed-out frustum for the base, with a rectangular-prism cutout that holds a servo motor. The servo's rotating shaft connects to a base that supports the panel. On one end of a beam sits a second motor that tilts the panel up and down; the other end is loosely connected with a bolt and nut.
+By extruding and lofting 2D sketches, I created a hollowed-out frustum to serve as the base. In the base, a servo motor holds up, and rotates a cylinder base, which hold up rectangular beams to hold the solar panel.  On one end of a beam sits a second motor that tilts the panel up and down; the other end is loosely connected with a bolt and nut.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/w8I2iujtMhk?si=RQaVOStHIRxvRER_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
