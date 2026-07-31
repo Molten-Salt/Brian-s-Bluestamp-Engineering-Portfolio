@@ -46,16 +46,14 @@ You can't actually command a Servo Motor to move 3 degrees clockwise, or 15 degr
 
 ## Second Milestone
 
-For my second milestone, I designed the solar panel mount in Onshape, a CAD program.
+For my second milestone, I designed the solar panel mount in Onshape, a CAD program. By extruding and lofting 2D sketches, I created a hollowed-out frustum to serve as the base. In the base, a servo motor holds up, and rotates a cylinder base, which hold up rectangular beams to hold the solar panel.  On one end of a beam sits a second motor that tilts the panel up and down; the other end is loosely connected with a bolt and nut.
 
-By extruding and lofting 2D sketches, I created a hollowed-out frustum to serve as the base. In the base, a servo motor holds up, and rotates a cylinder base, which hold up rectangular beams to hold the solar panel.  On one end of a beam sits a second motor that tilts the panel up and down; the other end is loosely connected with a bolt and nut.
+<img width="1223" height="1057" alt="Screenshot 2026-07-31 at 9 19 01 AM" src="https://github.com/user-attachments/assets/92462f74-b4ea-47ff-a06a-dabb5dd7edfb" />
+
+
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/w8I2iujtMhk?si=RQaVOStHIRxvRER_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/DKBY4hZPokM?si=iDBtwOJHNVWD8kCy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
----
 
 
 
