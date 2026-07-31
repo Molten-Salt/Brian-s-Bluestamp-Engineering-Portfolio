@@ -17,21 +17,14 @@ The LDRs receive electricity from the Arduino, with the resistance against this 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/R-oDt9jQxLU?si=cud6JWD-leJm_vVq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-Y
-ou can't actually command a Servo Motor to move 3 degrees clockwise, or 15 degrees counterclockwise, because It doesn't remember its current position after you stop powering the Motor! 
+
+
+You can't actually command a Servo Motor to move 3 degrees clockwise, or 15 degrees counterclockwise, because It doesn't remember its current position after you stop powering the Motor! 
 
 Because of this, I made it so that the Servo Motor would start at the fixed position of 90 degrees, and assigned a variable to be always equal to the Servo Position (POS). The 90 degrees was intentionally chosen, so that it could rotate in both directions. 
 
 
-the code can only tell the Motor to rotate to a certain amount of degrees from 0-180. I initially wrote code that went:
-If A0 > A1, rotat
-
-
-
-
-
 <img width="795" height="646" alt="Screenshot 2026-07-30 at 12 01 06 PM" src="https://github.com/user-attachments/assets/53507237-3d78-4e24-a181-2da9e8e1a504" />
-
 
 
 ---
