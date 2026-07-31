@@ -102,7 +102,7 @@ Four light-dependent resistors (LDRs) are placed on the corners of the panel. Ea
 
 ## Schematics
 
-<img width="1146" height="886" alt="Schematic" src="https://github.com/user-attachments/assets/2cc0e38e-0b6e-4ae6-b4c0-412491e0dd7a" />
+<img width="1000" height="772" alt="Screenshot 2026-07-31 at 10 00 24 AM" src="https://github.com/user-attachments/assets/bc5c839b-bffd-41ae-b6d6-fa8da6e5fc81" />
 
 ---
 
