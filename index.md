@@ -145,103 +145,1287 @@ I installed the photoresistors to complete the solar tracker. Soldering all thes
 ```cpp
 #include <Servo.h>
 
+
+
+
+#include <OneWire.h>
+
+
+
+
+#include <DallasTemperature.h>
+
+
+
+
+
+
+
 // --- SERVO DEFINITIONS ---
+
+
+
+
 Servo panServo;
+
+
+
+
 Servo tiltServo;
 
+
+
+
+
+
+
 // --- PIN DEFINITIONS ---
+
+
+
+
 const int LDR_TOP_LEFT     = A1;
+
+
+
+
 const int LDR_BOTTOM_LEFT  = A0;
+
+
+
+
 const int LDR_TOP_RIGHT    = A5;
+
+
+
+
 const int LDR_BOTTOM_RIGHT = A4;
 
+
+
+
+const int TEMP_SENSOR_PIN  = 8;  // DS18B20 data pin (confirmed on D8)
+
+
+
+
+const int RELAY_PIN        = 7;  // Signal pin to relay module's IN terminal
+
+
+
+
+
+
+
+// --- DS18B20 SETUP ---
+
+
+
+
+OneWire oneWire(TEMP_SENSOR_PIN);
+
+
+
+
+DallasTemperature tempSensor(&oneWire);
+
+
+
+
+
+
+
 // --- SAFE BOUNDARIES ---
-const int TILT_MIN = 10;   // Lowest tilt boundary
-const int TILT_MAX = 170;  // Highest tilt boundary
-const int PAN_MIN  = 0;    // Left pan limit
-const int PAN_MAX  = 177;  // Right pan limit
+
+
+
+
+const int TILT_MIN = 10;
+
+
+
+
+const int TILT_MAX = 150;
+
+
+
+
+const int PAN_MIN  = 0;
+
+
+
+
+const int PAN_MAX  = 177;
+
+
+
+
+
+
 
 // --- TUNING & SPEED SETTINGS ---
-int tiltAngle = 90;   // Start centered
-int panAngle  = 90;   // Start centered
 
-const int STEP_SIZE  = 3;   // Movement step size (degrees)
-const int STEP_DELAY = 30;  // Loop delay (ms)
-const int DEADBAND   = 20;  // Sensitivity threshold
+
+
+
+int tiltAngle = 90;
+
+
+
+
+int panAngle  = 90;
+
+
+
+
+
+
+
+const int STEP_SIZE  = 3;
+
+
+
+
+const int STEP_DELAY = 30;
+
+
+
+
+const int DEADBAND   = 20;
+
+
+
+
+
+
 
 // --- CALIBRATION MULTIPLICATIVE SCALARS ---
-// Adjust these fine-tuning multipliers (e.g., 0.95 to 1.05) to balance sensor readings
+
+
+
+
 const float SCALE_TL = 1.00;
-const float SCALE_BL = 1.2;
+
+
+
+
+const float SCALE_BL = 1.00;
+
+
+
+
 const float SCALE_TR = 1.00;
-const float SCALE_BR = 2.70;
+
+
+
+
+const float SCALE_BR = 1.00;
+
+
+
+
+
+
+
+// --- TEMPERATURE / RELAY (PUMP) SETTINGS ---
+
+
+
+
+const float PUMP_ON_TEMP_C  = 20.0;  // Turn pump ON at/above this temp
+
+
+
+
+const float PUMP_OFF_TEMP_C = 15.0;  // Turn pump OFF at/below this temp (hysteresis)
+
+
+
+
+bool pumpActive = false;
+
+
+
+
+
+
+
+// --- NON-BLOCKING TEMP READ STATE MACHINE ---
+
+
+
+
+bool conversionInProgress = false;
+
+
+
+
+unsigned long conversionStartTime = 0;
+
+
+
+
+const unsigned long CONVERSION_WAIT_MS = 100;
+
+
+
+
+const unsigned long TEMP_REQUEST_INTERVAL = 1000;
+
+
+
+
+unsigned long lastRequestTime = 0;
+
+
+
+
+float lastTempC = -127.0;
+
+
+
+
+
+
 
 void setup() {
-  Serial.begin(9600);
 
-  // Staggered startup sequence
-  panServo.write(panAngle);
-  panServo.attach(6);
-  delay(300);
 
-  tiltServo.write(tiltAngle);
-  tiltServo.attach(5);
-  delay(300);
+
+
+Serial.begin(9600);
+
+
+
+
+
+
+
+panServo.write(panAngle);
+
+
+
+
+panServo.attach(6);
+
+
+
+
+delay(300);
+
+
+
+
+
+
+
+tiltServo.write(tiltAngle);
+
+
+
+
+tiltServo.attach(5);
+
+
+
+
+delay(300);
+
+
+
+
+
+
+
+pinMode(RELAY_PIN, OUTPUT);
+
+
+
+
+digitalWrite(RELAY_PIN, LOW);  // Pump off at startup
+
+
+
+
+
+
+
+tempSensor.begin();
+
+
+
+
+tempSensor.setResolution(9);
+
+
+
+
+tempSensor.setWaitForConversion(false);
+
+
+
+
 }
+
+
+
+
+
+
+
+void updatePumpRelay(float tempC) {
+
+
+
+
+if (!pumpActive && tempC >= PUMP_ON_TEMP_C) {
+
+
+
+
+    pumpActive = true;
+
+
+
+
+  } else if (pumpActive && tempC <= PUMP_OFF_TEMP_C) {
+
+
+
+
+    pumpActive = false;
+
+
+
+
+  }
+
+
+
+
+digitalWrite(RELAY_PIN, pumpActive ? HIGH : LOW);
+
+
+
+
+}
+
+
+
+
+
+
 
 void loop() {
-  // 1. Read raw analog values from LDR pins
-  int rawTL = analogRead(LDR_TOP_LEFT);
-  int rawBL = analogRead(LDR_BOTTOM_LEFT);
-  int rawTR = analogRead(LDR_TOP_RIGHT);
-  int rawBR = analogRead(LDR_BOTTOM_RIGHT);
 
-  // 2. Apply multiplicative scaling calibration
-  int topLeft     = rawTL * SCALE_TL;
-  int bottomLeft  = rawBL * SCALE_BL;
-  int topRight    = rawTR * SCALE_TR;
-  int bottomRight = rawBR * SCALE_BR;
 
-  // 3. Average sensor pairs for dual-axis tracking
-  int avgTop    = (topLeft + topRight) / 2;
-  int avgBottom = (bottomLeft + bottomRight) / 2;
-  int avgLeft   = (topLeft + bottomLeft) / 2;
-  int avgRight  = (topRight + bottomRight) / 2;
 
-  // 4. Print adjusted/scaled values to Serial Monitor
-  Serial.print("ADJ -> TL:"); Serial.print(topLeft);
-  Serial.print(" BL:");       Serial.print(bottomLeft);
-  Serial.print(" TR:");       Serial.print(topRight);
-  Serial.print(" BR:");       Serial.print(bottomRight);
-  Serial.print(" | Tilt:");   Serial.print(tiltAngle);
-  Serial.print(" Pan:");      Serial.println(panAngle);
 
-  // --- VERTICAL AXIS (TILT) ---
-  int vertDiff = avgTop - avgBottom;
-  if (vertDiff > DEADBAND) {
+int rawTL = analogRead(LDR_TOP_LEFT);
+
+
+
+
+int rawBL = analogRead(LDR_BOTTOM_LEFT);
+
+
+
+
+int rawTR = analogRead(LDR_TOP_RIGHT);
+
+
+
+
+int rawBR = analogRead(LDR_BOTTOM_RIGHT);
+
+
+
+
+
+
+
+int topLeft     = rawTL * SCALE_TL;
+
+
+
+
+int bottomLeft  = rawBL * SCALE_BL;
+
+
+
+
+int topRight    = rawTR * SCALE_TR;
+
+
+
+
+int bottomRight = rawBR * SCALE_BR;
+
+
+
+
+
+
+
+int avgTop    = (topLeft + topRight) / 2;
+
+
+
+
+int avgBottom = (bottomLeft + bottomRight) / 2;
+
+
+
+
+int avgLeft   = (topLeft + bottomLeft) / 2;
+
+
+
+
+int avgRight  = (topRight + bottomRight) / 2;
+
+
+
+
+
+
+
+int vertDiff = avgTop - avgBottom;
+
+
+
+
+if (vertDiff > DEADBAND) {
+
+
+
+
     tiltAngle += STEP_SIZE;
+
+
+
+
   } else if (vertDiff < -DEADBAND) {
+
+
+
+
     tiltAngle -= STEP_SIZE;
+
+
+
+
   }
 
-  // --- HORIZONTAL AXIS (PAN) ---
-  int horizDiff = avgLeft - avgRight;
-  if (horizDiff > DEADBAND) {
-    panAngle -= STEP_SIZE;  // Swap sign if pan turns away from light
+
+
+
+
+
+
+int horizDiff = avgLeft - avgRight;
+
+
+
+
+if (horizDiff > DEADBAND) {
+
+
+
+
+    panAngle -= STEP_SIZE;
+
+
+
+
   } else if (horizDiff < -DEADBAND) {
+
+
+
+
     panAngle += STEP_SIZE;
+
+
+
+
   }
 
-  // Enforce mechanical limits
+
+
+
+
+
+
   tiltAngle = constrain(tiltAngle, TILT_MIN, TILT_MAX);
+
+
+
+
   panAngle  = constrain(panAngle, PAN_MIN, PAN_MAX);
 
-  // Output position updates to servos
-  tiltServo.write(tiltAngle);
-  panServo.write(panAngle);
 
-  delay(STEP_DELAY);
+
+
+
+
+
+tiltServo.write(tiltAngle);
+
+
+
+
+panServo.write(panAngle);
+
+
+
+
+
+
+
+unsigned long now = millis();
+
+
+
+
+
+
+
+if (!conversionInProgress && (now - lastRequestTime >= TEMP_REQUEST_INTERVAL)) {
+
+
+
+
+tempSensor.requestTemperatures();
+
+
+
+
+    conversionInProgress = true;
+
+
+
+
+    conversionStartTime = now;
+
+
+
+
+    lastRequestTime = now;
+
+
+
+
+  }
+
+
+
+
+
+
+
+if (conversionInProgress && (now - conversionStartTime >= CONVERSION_WAIT_MS)) {
+
+
+
+
+    lastTempC = tempSensor.getTempCByIndex(0);
+
+
+
+
+    conversionInProgress = false;
+
+
+
+
+updatePumpRelay(lastTempC);
+
+
+
+
+
+
+
+Serial.print("ADJ -> TL:"); Serial.print(topLeft);
+
+
+
+
+Serial.print(" BL:");       Serial.print(bottomLeft);
+
+
+
+
+Serial.print(" TR:");       Serial.print(topRight);
+
+
+
+
+Serial.print(" BR:");       Serial.print(bottomRight);
+
+
+
+
+Serial.print(" | Tilt:");   Serial.print(tiltAngle);
+
+
+
+
+Serial.print(" Pan:");      Serial.print(panAngle);
+
+
+
+
+Serial.print(" | Temp:");   Serial.print(lastTempC);
+
+
+
+
+Serial.print("C Pump:");    Serial.println(pumpActive ? "ON" : "OFF");
+
+
+
+
+  }
+
+
+
+
+
+
+
+delay(STEP_DELAY);
+
+
+
+
 }
+
+#include <Servo.h>
+
+
+
+#include <OneWire.h>
+
+
+
+#include <DallasTemperature.h>
+
+
+
+
+
+
+
+
+
+// --- SERVO DEFINITIONS ---
+
+
+
+Servo panServo;
+
+
+
+Servo tiltServo;
+
+
+
+
+
+
+
+
+
+// --- PIN DEFINITIONS ---
+
+
+
+const int LDR_TOP_LEFT     = A1;
+
+
+
+const int LDR_BOTTOM_LEFT  = A0;
+
+
+
+const int LDR_TOP_RIGHT    = A5;
+
+
+
+const int LDR_BOTTOM_RIGHT = A4;
+
+
+
+const int TEMP_SENSOR_PIN  = 8;  // DS18B20 data pin (confirmed on D8)
+
+
+
+const int RELAY_PIN        = 7;  // Signal pin to relay module's IN terminal
+
+
+
+
+
+
+
+
+
+// --- DS18B20 SETUP ---
+
+
+
+OneWire oneWire(TEMP_SENSOR_PIN);
+
+
+
+DallasTemperature tempSensor(&oneWire);
+
+
+
+
+
+
+
+
+
+// --- SAFE BOUNDARIES ---
+
+
+
+const int TILT_MIN = 10;
+
+
+
+const int TILT_MAX = 150;
+
+
+
+const int PAN_MIN  = 0;
+
+
+
+const int PAN_MAX  = 177;
+
+
+
+
+
+
+
+
+
+// --- TUNING & SPEED SETTINGS ---
+
+
+
+int tiltAngle = 90;
+
+
+
+int panAngle  = 90;
+
+
+
+
+
+
+
+
+
+const int STEP_SIZE  = 3;
+
+
+
+const int STEP_DELAY = 30;
+
+
+
+const int DEADBAND   = 20;
+
+
+
+
+
+
+
+
+
+// --- CALIBRATION MULTIPLICATIVE SCALARS ---
+
+
+
+const float SCALE_TL = 1.00;
+
+
+
+const float SCALE_BL = 1.00;
+
+
+
+const float SCALE_TR = 1.00;
+
+
+
+const float SCALE_BR = 1.00;
+
+
+
+
+
+
+
+
+
+// --- TEMPERATURE / RELAY (PUMP) SETTINGS ---
+
+
+
+const float PUMP_ON_TEMP_C  = 20.0;  // Turn pump ON at/above this temp
+
+
+
+const float PUMP_OFF_TEMP_C = 15.0;  // Turn pump OFF at/below this temp (hysteresis)
+
+
+
+bool pumpActive = false;
+
+
+
+
+
+
+
+
+
+// --- NON-BLOCKING TEMP READ STATE MACHINE ---
+
+
+
+bool conversionInProgress = false;
+
+
+
+unsigned long conversionStartTime = 0;
+
+
+
+const unsigned long CONVERSION_WAIT_MS = 100;
+
+
+
+const unsigned long TEMP_REQUEST_INTERVAL = 1000;
+
+
+
+unsigned long lastRequestTime = 0;
+
+
+
+float lastTempC = -127.0;
+
+
+
+
+
+
+
+
+
+void setup() {
+
+
+
+Serial.begin(9600);
+
+
+
+
+
+
+
+
+
+panServo.write(panAngle);
+
+
+
+panServo.attach(6);
+
+
+
+delay(300);
+
+
+
+
+
+
+
+
+
+tiltServo.write(tiltAngle);
+
+
+
+tiltServo.attach(5);
+
+
+
+delay(300);
+
+
+
+
+
+
+
+
+
+pinMode(RELAY_PIN, OUTPUT);
+
+
+
+digitalWrite(RELAY_PIN, LOW);  // Pump off at startup
+
+
+
+
+
+
+
+
+
+tempSensor.begin();
+
+
+
+tempSensor.setResolution(9);
+
+
+
+tempSensor.setWaitForConversion(false);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+void updatePumpRelay(float tempC) {
+
+
+
+if (!pumpActive && tempC >= PUMP_ON_TEMP_C) {
+
+
+
+    pumpActive = true;
+
+
+
+  } else if (pumpActive && tempC <= PUMP_OFF_TEMP_C) {
+
+
+
+    pumpActive = false;
+
+
+
+  }
+
+
+
+digitalWrite(RELAY_PIN, pumpActive ? HIGH : LOW);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+void loop() {
+
+
+
+int rawTL = analogRead(LDR_TOP_LEFT);
+
+
+
+int rawBL = analogRead(LDR_BOTTOM_LEFT);
+
+
+
+int rawTR = analogRead(LDR_TOP_RIGHT);
+
+
+
+int rawBR = analogRead(LDR_BOTTOM_RIGHT);
+
+
+
+
+
+
+
+
+
+int topLeft     = rawTL * SCALE_TL;
+
+
+
+int bottomLeft  = rawBL * SCALE_BL;
+
+
+
+int topRight    = rawTR * SCALE_TR;
+
+
+
+int bottomRight = rawBR * SCALE_BR;
+
+
+
+
+
+
+
+
+
+int avgTop    = (topLeft + topRight) / 2;
+
+
+
+int avgBottom = (bottomLeft + bottomRight) / 2;
+
+
+
+int avgLeft   = (topLeft + bottomLeft) / 2;
+
+
+
+int avgRight  = (topRight + bottomRight) / 2;
+
+
+
+
+
+
+
+
+
+int vertDiff = avgTop - avgBottom;
+
+
+
+if (vertDiff > DEADBAND) {
+
+
+
+    tiltAngle += STEP_SIZE;
+
+
+
+  } else if (vertDiff < -DEADBAND) {
+
+
+
+    tiltAngle -= STEP_SIZE;
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+int horizDiff = avgLeft - avgRight;
+
+
+
+if (horizDiff > DEADBAND) {
+
+
+
+    panAngle -= STEP_SIZE;
+
+
+
+  } else if (horizDiff < -DEADBAND) {
+
+
+
+    panAngle += STEP_SIZE;
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+  tiltAngle = constrain(tiltAngle, TILT_MIN, TILT_MAX);
+
+
+
+  panAngle  = constrain(panAngle, PAN_MIN, PAN_MAX);
+
+
+
+
+
+
+
+
+
+tiltServo.write(tiltAngle);
+
+
+
+panServo.write(panAngle);
+
+
+
+
+
+
+
+
+
+unsigned long now = millis();
+
+
+
+
+
+
+
+
+
+if (!conversionInProgress && (now - lastRequestTime >= TEMP_REQUEST_INTERVAL)) {
+
+
+
+tempSensor.requestTemperatures();
+
+
+
+    conversionInProgress = true;
+
+
+
+    conversionStartTime = now;
+
+
+
+    lastRequestTime = now;
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+if (conversionInProgress && (now - conversionStartTime >= CONVERSION_WAIT_MS)) {
+
+
+
+    lastTempC = tempSensor.getTempCByIndex(0);
+
+
+
+    conversionInProgress = false;
+
+
+
+updatePumpRelay(lastTempC);
+
+
+
+
+
+
+
+
+
+Serial.print("ADJ -> TL:"); Serial.print(topLeft);
+
+
+
+Serial.print(" BL:");       Serial.print(bottomLeft);
+
+
+
+Serial.print(" TR:");       Serial.print(topRight);
+
+
+
+Serial.print(" BR:");       Serial.print(bottomRight);
+
+
+
+Serial.print(" | Tilt:");   Serial.print(tiltAngle);
+
+
+
+Serial.print(" Pan:");      Serial.print(panAngle);
+
+
+
+Serial.print(" | Temp:");   Serial.print(lastTempC);
+
+
+
+Serial.print("C Pump:");    Serial.println(pumpActive ? "ON" : "OFF");
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+delay(STEP_DELAY);
+
+
+
+}
+ 
+
 ```
 
 ---
